@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "c02c28ce-8116-3e88-73e2-a019aeb11e49",
+		"name": "stripe_3D",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "payment_intent",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer sk_test_WR33tyLl4FnDE6G4Pni3zbAt",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "amount",
+							"value": "2500",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "usd",
+							"type": "text"
+						},
+						{
+							"key": "allowed_source_types[]",
+							"value": "card",
+							"type": "text"
+						},
+						{
+							"key": "source",
+							"value": "src_1E0Q4YJ1AiBOrWg9aljpdMxW",
+							"type": "text"
+						},
+						{
+							"key": "return_url",
+							"value": "https://strictest.free.beeceptor.com",
+							"type": "text"
+						},
+						{
+							"key": "confirm",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_intents",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_intents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSource",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer sk_test_WR33tyLl4FnDE6G4Pni3zbAt"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "type",
+							"value": "card",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "usd",
+							"type": "text"
+						},
+						{
+							"key": "owner[email]",
+							"value": "servet.karabas@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "card[exp_month]",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "card[exp_year]",
+							"value": "2024",
+							"type": "text"
+						},
+						{
+							"key": "card[number]",
+							"value": "4000000000003063",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/sources?=",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"sources"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "816ac133-5cd0-43ac-8ab5-5ae78b12d0bd",
+		"name": "stripe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "payment_intent",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer sk_test_zVAZ9a4eD74k5FhFkjSjXtLe",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "amount",
+							"value": "2500",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "usd",
+							"type": "text"
+						},
+						{
+							"key": "allowed_source_types[]",
+							"value": "card",
+							"type": "text"
+						},
+						{
+							"key": "source",
+							"value": "src_1DxyymIDxKmuFutkLPGjFi0R",
+							"type": "text"
+						},
+						{
+							"key": "return_url",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_intents",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_intents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirmPayment",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer sk_test_zVAZ9a4eD74k5FhFkjSjXtLe",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "source",
+							"value": "src_1DxyymIDxKmuFutkLPGjFi0R",
+							"type": "text"
+						},
+						{
+							"key": "return_url",
+							"value": "https://strictest.free.beeceptor.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/payment_intents/pi_1Dxz0vIDxKmuFutkZgyoVddj/confirm",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"payment_intents",
+						"pi_1Dxz0vIDxKmuFutkZgyoVddj",
+						"confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSource",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer sk_test_zVAZ9a4eD74k5FhFkjSjXtLe",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "type",
+							"value": "card",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "usd",
+							"type": "text"
+						},
+						{
+							"key": "owner[email]",
+							"value": "jenny.rosen@example.com",
+							"type": "text"
+						},
+						{
+							"key": "card[exp_month]",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "card[exp_year]",
+							"value": "2024",
+							"type": "text"
+						},
+						{
+							"key": "card[number]",
+							"value": "4000000000003063",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://api.stripe.com/v1/sources",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stripe",
+						"com"
+					],
+					"path": [
+						"v1",
+						"sources"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
